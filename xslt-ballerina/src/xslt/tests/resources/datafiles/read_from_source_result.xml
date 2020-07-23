@@ -1,0 +1,30 @@
+<html>
+<title>XML XSL Example</title>
+<style type="text/css">
+                    body {
+                    margin:10px;
+                    background-color:#ccff00;
+                    font-family:verdana,helvetica,sans-serif;
+                    }
+
+                    .tutorial-name {
+                    display:block;
+                    font-weight:bold;
+                    }
+
+                    .tutorial-url {
+                    display:block;
+                    color:#636363;
+                    font-size:small;
+                    font-style:italic;
+                    }
+                </style>
+<body>
+<h2>Source Transform</h2>
+<p>Hello, ballerina!</p>
+    
+<span class="tutorial-name">XSLT</span><span class="tutorial-url">https://www.abc.com</span>
+    <span class="tutorial-name">HTML</span><span class="tutorial-url">https://www.xyz.com</span>
+
+</body>
+</html>
