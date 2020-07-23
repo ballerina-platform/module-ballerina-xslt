@@ -62,7 +62,7 @@ allprojects {
         }
 
         maven {
-            url = 'https://maven.pkg.github.com/ballerina-platform/module-ballerina-xslt'
+            url = 'https://maven.pkg.github.com/Bhashinee/module-ballerina-xslt'
         }
     }
 }
