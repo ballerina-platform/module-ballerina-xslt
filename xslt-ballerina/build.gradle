@@ -195,7 +195,6 @@ publishing {
 }
 
 ballerinaBuild.dependsOn ":xslt-native:build"
-ballerinaBuild.dependsOn ":xslt-test-utils:build"
 unpackJballerinaTools.dependsOn copyToLib
 ballerinaBuild.dependsOn unpackJballerinaTools
 build.dependsOn ballerinaBuild
