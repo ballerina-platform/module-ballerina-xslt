@@ -1,0 +1,27 @@
+[project]
+org-name = "ballerina"
+version = "@toml.version@"
+
+[platform]
+target = "java8"
+
+    [[platform.libraries]]
+    artifactId = "xslt"
+    version = "@project.version@"
+    path = "../xslt-native/build/libs/xslt-native-@project.version@.jar"
+    groupId = "ballerina"
+    modules = ["xslt"]
+
+    [[platform.libraries]]
+    artifactId = "axiom-api"
+    version = "1.2.22"
+    path = "./lib/axiom-api-1.2.22.jar"
+    groupId = "org.apache.ws.commons.axiom"
+    modules = ["xslt"]
+
+    [[platform.libraries]]
+    artifactId = "axiom-impl"
+    version = "1.2.22"
+    path = "./lib/axiom-impl-1.2.22.jar"
+    groupId = "org.apache.ws.commons.axiom"
+    modules = ["xslt"]
