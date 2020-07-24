@@ -1,14 +1,14 @@
 [project]
 org-name = "ballerina"
-version = "1.0.1"
+version = "@toml.version@"
 
 [platform]
 target = "java8"
 
     [[platform.libraries]]
     artifactId = "xslt"
-    version = "1.0.1-SNAPSHOT"
-    path = "../xslt-native/build/libs/xslt-native-1.0.1-SNAPSHOT.jar"
+    version = "@project.version@"
+    path = "../xslt-native/build/libs/xslt-native-@project.version@.jar"
     groupId = "ballerina"
     modules = ["xslt"]
 
