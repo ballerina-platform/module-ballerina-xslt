@@ -134,20 +134,21 @@ task ballerinaBuild {
             into file("$artifactLibParent/libs")
         }
 
-        // Publish to central
-        if (!project.version.endsWith('-SNAPSHOT') && ballerinaCentralAccessToken != null && project.hasProperty("publishToCentral")) {
-            println("Publishing to the ballerina central..")
-            exec {
-                workingDir project.projectDir
-                environment "JAVA_OPTS", "-DBALLERINA_DEV_COMPILE_BALLERINA_ORG=true"
-                if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-                    commandLine 'cmd', '/c', "$distributionBinPath/ballerina.bat push ${moduleName}"
-                } else {
-                    commandLine 'sh', '-c', "$distributionBinPath/ballerina push ${moduleName}"
-                }
-            }
-
-        }
+//        Disable publish to central until it confirmed
+//        // Publish to central
+//        if (!project.version.endsWith('-SNAPSHOT') && ballerinaCentralAccessToken != null && project.hasProperty("publishToCentral")) {
+//            println("Publishing to the ballerina central..")
+//            exec {
+//                workingDir project.projectDir
+//                environment "JAVA_OPTS", "-DBALLERINA_DEV_COMPILE_BALLERINA_ORG=true"
+//                if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+//                    commandLine 'cmd', '/c', "$distributionBinPath/ballerina.bat push ${moduleName}"
+//                } else {
+//                    commandLine 'sh', '-c', "$distributionBinPath/ballerina push ${moduleName}"
+//                }
+//            }
+//
+//        }
         // Doc creation and packing
         exec {
             workingDir project.projectDir
