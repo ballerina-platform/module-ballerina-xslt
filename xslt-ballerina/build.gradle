@@ -21,8 +21,6 @@ description = 'Ballerina - XSLT Ballerina Generator'
 
 configurations {
     jbalTools
-    xsltBallerinaBirDir
-    xsltBallerinaJar
     externalJars
 }
 
@@ -58,6 +56,46 @@ task unpackJballerinaTools(type: Copy) {
     }
 }
 
+task unpackStdLibs() {
+    doLast {
+        configurations.ballerinaStdLibs.resolvedConfiguration.resolvedArtifacts.each { artifact ->
+            copy {
+                from project.zipTree(artifact.getFile())
+                into new File("${buildDir}/target/extracted-distributions", artifact.name + "-zip")
+            }
+        }
+    }
+}
+
+task copyStdlibs(type: Copy) {
+    def ballerinaDist = "build/target/extracted-distributions/jballerina-tools-zip/jballerina-tools-${ballerinaLangVersion}"
+    into ballerinaDist
+
+    /* Standard Libraries */
+    configurations.ballerinaStdLibs.resolvedConfiguration.resolvedArtifacts.each { artifact ->
+        def artifactExtractedPath = "${buildDir}/target/extracted-distributions/" + artifact.name + "-zip"
+        into("bir-cache/") {
+            from "${artifactExtractedPath}/caches/bir"
+        }
+        into("bre/lib/") {
+            from "${artifactExtractedPath}/libs"
+        }
+        into("docs/") {
+            from "${artifactExtractedPath}/docs"
+        }
+        // pack to new cache
+        into("cache/bir/") {
+            from "${artifactExtractedPath}/caches/bir"
+        }
+        into("cache/balo/") {
+            from "${artifactExtractedPath}/caches/balo"
+        }
+        into("cache/jar/") {
+            from "${artifactExtractedPath}/caches/jar"
+        }
+    }
+}
+
 task copyToLib(type: Copy) {
     into "$project.projectDir/lib"
     from configurations.externalJars
@@ -73,25 +111,47 @@ def tomlVersion = project.version.split("-")[0]
 def ballerinaCentralAccessToken = System.getenv('BALLERINA_CENTRAL_ACCESS_TOKEN')
 def targetBallerinaJar = file("$project.projectDir/target/caches/jar_cache/${moduleOrg}/${moduleName}/${tomlVersion}/${moduleOrg}-${moduleName}-${tomlVersion}.jar")
 def targetNativeJar = file("$project.rootDir/${moduleName}-native/build/libs/${moduleName}-native-${project.version}.jar")
+def originalConfig = ballerinaConfigFile.text
+
+task updateTomlVerions {
+    doLast {
+        def stdlibDependentIoVersion = project.stdlibIoVersion.split("-")[0]
+        def stdlibDependentStringutilsVersion = project.stdlibStringUtilsVersion.split("-")[0]
+        def newConfig = ballerinaConfigFile.text.replace("@project.version@", project.version)
+        newConfig = newConfig.replace("@toml.version@", tomlVersion)
+        newConfig = newConfig.replace("@stdlib.io.version@", stdlibDependentIoVersion)
+        newConfig = newConfig.replace("@stdlib.stringutils.version@", stdlibDependentStringutilsVersion)
+        ballerinaConfigFile.text = newConfig
+    }
+}
+
+task revertTomlFile {
+    doLast {
+        ballerinaConfigFile.text = originalConfig
+    }
+}
 
 task ballerinaBuild {
     inputs.dir file(project.projectDir)
+    finalizedBy(revertTomlFile)
+
     doLast {
-        def originalConfig = ballerinaConfigFile.text
-        def newConfig = ballerinaConfigFile.text.replace("@project.version@", project.version)
-        newConfig = newConfig.replace("@toml.version@", tomlVersion)
-        ballerinaConfigFile.text = newConfig
 
         def distributionBinPath =  project.projectDir.absolutePath + "/build/target/extracted-distributions/jballerina-tools-zip/jballerina-tools-${ballerinaLangVersion}/bin"
+        def additionalBuildParams = ""
+
+        if (project.hasProperty("skipBallerinaTests")) {
+            additionalBuildParams += "--skip-tests"
+        }
 
         // Build and populate caches
         exec {
             workingDir project.projectDir
             environment "JAVA_OPTS", "-DBALLERINA_DEV_COMPILE_BALLERINA_ORG=true"
             if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-                commandLine 'cmd', '/c', "$distributionBinPath/ballerina.bat build -c ${moduleName}"
+                commandLine 'cmd', '/c', "$distributionBinPath/ballerina.bat build ${additionalBuildParams} -c ${moduleName}"
             } else {
-                commandLine 'sh', '-c', "$distributionBinPath/ballerina build -c ${moduleName}"
+                commandLine 'sh', '-c', "$distributionBinPath/ballerina build ${additionalBuildParams} -c ${moduleName}"
             }
         }
         copy {
@@ -163,7 +223,6 @@ task ballerinaBuild {
             from file("$project.projectDir/target/apidocs/${moduleName}")
             into file("$project.projectDir/build/docs_parent/docs/${moduleName}")
         }
-        ballerinaConfigFile.text = originalConfig
     }
 
     outputs.dir artifactCacheParent
@@ -197,5 +256,8 @@ publishing {
 
 ballerinaBuild.dependsOn ":xslt-native:build"
 unpackJballerinaTools.dependsOn copyToLib
-ballerinaBuild.dependsOn unpackJballerinaTools
+unpackStdLibs.dependsOn unpackJballerinaTools
+copyStdlibs.dependsOn unpackStdLibs
+updateTomlVerions.dependsOn copyStdlibs
+ballerinaBuild.dependsOn updateTomlVerions
 build.dependsOn ballerinaBuild
