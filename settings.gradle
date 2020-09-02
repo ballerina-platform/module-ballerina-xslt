@@ -14,7 +14,6 @@ plugins {
 rootProject.name = 'xslt'
 include(':build-config:checkstyle')
 include ':xslt-native', ':xslt-ballerina'
-include 'xslt-native'
 
 gradleEnterprise {
     buildScan {
