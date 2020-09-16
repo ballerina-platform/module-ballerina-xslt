@@ -20,10 +20,11 @@ package org.ballerinalang.xslt;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
-import org.ballerinalang.jvm.BallerinaErrors;
 import org.ballerinalang.jvm.XMLFactory;
 import org.ballerinalang.jvm.XMLNodeType;
-import org.ballerinalang.jvm.values.ErrorValue;
+import org.ballerinalang.jvm.api.BErrorCreator;
+import org.ballerinalang.jvm.api.BStringUtils;
+import org.ballerinalang.jvm.api.values.BError;
 import org.ballerinalang.jvm.values.XMLItem;
 import org.ballerinalang.jvm.values.XMLSequence;
 import org.ballerinalang.jvm.values.XMLValue;
@@ -109,7 +110,7 @@ public class XsltTransformer {
         return (XMLSequence) XMLFactory.parse(xmlStr);
     }
 
-    private static ErrorValue createTransformError(String errMsg) {
-        return BallerinaErrors.createDistinctError(XSLT_TRANSFORM_ERROR, XSLT_PACKAGE_ID, errMsg);
+    private static BError createTransformError(String errMsg) {
+        return BErrorCreator.createDistinctError(XSLT_TRANSFORM_ERROR, XSLT_PACKAGE_ID, BStringUtils.fromString(errMsg));
     }
 }
