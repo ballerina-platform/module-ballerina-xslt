@@ -22,8 +22,35 @@ plugins {
 description = 'Ballerina - Xslt Java Utils'
 
 dependencies {
-    compile group: 'org.ballerinalang', name: 'ballerina-runtime', version: "${ballerinaLangVersion}"
-    compile group: 'org.slf4j', name: 'slf4j-jdk14', version: "${slf4jVersion}"
-    compile group: 'org.apache.ws.commons.axiom', name: 'axiom-api', version: "${axiomVersion}"
-    compile group: 'org.apache.ws.commons.axiom', name: 'axiom-impl', version: "${axiomVersion}"
+    compile (group: 'org.ballerinalang', name: 'ballerina-lang', version: "${ballerinaLangVersion}") {
+        transitive = false
+    }
+    compile (group: 'org.ballerinalang', name: 'ballerina-runtime', version: "${ballerinaLangVersion}") {
+        transitive = false
+    }
+    compile (group: 'org.ballerinalang', name: 'ballerina-core', version: "${ballerinaLangVersion}") {
+        transitive = false
+    }
+    compile (group: 'org.ballerinalang', name: 'ballerina-rt', version: "${ballerinaLangVersion}") {
+        transitive = false
+    }
+    compile (group: 'org.slf4j', name: 'slf4j-jdk14', version: "${slf4jVersion}")
+    compile (group: 'org.apache.ws.commons.axiom', name: 'axiom-api', version: "${axiomVersion}") {
+        transitive = false
+    }
+    compile (group: 'org.apache.ws.commons.axiom', name: 'axiom-impl', version: "${axiomVersion}") {
+        transitive = false
+    }
+    compile (group: 'com.sun.activation', name: 'jakarta.activation', version: "${jakartaActivationVersion}") {
+        transitive = false
+    }
+}
+
+compileJava {
+    doFirst {
+        options.compilerArgs = [
+                '--module-path', classpath.asPath,
+        ]
+        classpath = files()
+    }
 }
