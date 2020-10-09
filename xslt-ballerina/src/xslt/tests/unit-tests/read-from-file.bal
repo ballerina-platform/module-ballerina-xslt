@@ -35,7 +35,9 @@ function testReadFromFile() {
     }
 }
 
-@test:Config {}
+@test:Config {
+    enable: false
+}
 function testReadFromSource() {
     string xmlFilePath = "src/xslt/tests/resources/datafiles/source.xml";
     string xslFilePath = "src/xslt/tests/resources/datafiles/source.xsl";
