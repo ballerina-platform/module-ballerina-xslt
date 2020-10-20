@@ -18,16 +18,16 @@
 
 package org.ballerinalang.xslt;
 
+import io.ballerina.runtime.XMLFactory;
+import io.ballerina.runtime.XMLNodeType;
+import io.ballerina.runtime.api.ErrorCreator;
+import io.ballerina.runtime.api.StringUtils;
+import io.ballerina.runtime.api.values.BError;
+import io.ballerina.runtime.values.XMLItem;
+import io.ballerina.runtime.values.XMLSequence;
+import io.ballerina.runtime.values.XMLValue;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
-import org.ballerinalang.jvm.XMLFactory;
-import org.ballerinalang.jvm.XMLNodeType;
-import org.ballerinalang.jvm.api.BErrorCreator;
-import org.ballerinalang.jvm.api.BStringUtils;
-import org.ballerinalang.jvm.api.values.BError;
-import org.ballerinalang.jvm.values.XMLItem;
-import org.ballerinalang.jvm.values.XMLSequence;
-import org.ballerinalang.jvm.values.XMLValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -111,6 +111,6 @@ public class XsltTransformer {
     }
 
     private static BError createTransformError(String errMsg) {
-        return BErrorCreator.createDistinctError(XSLT_TRANSFORM_ERROR, XSLT_PACKAGE_ID, BStringUtils.fromString(errMsg));
+        return ErrorCreator.createDistinctError(XSLT_TRANSFORM_ERROR, XSLT_PACKAGE_ID, StringUtils.fromString(errMsg));
     }
 }

@@ -18,16 +18,16 @@
 
 package org.ballerinalang.xslt;
 
-import org.ballerinalang.jvm.types.BPackage;
+import io.ballerina.runtime.api.Module;
 
-import static org.ballerinalang.jvm.util.BLangConstants.BALLERINA_BUILTIN_PKG_PREFIX;
+import static io.ballerina.runtime.util.BLangConstants.BALLERINA_BUILTIN_PKG_PREFIX;
 
 /**
  * Constants related to XSLT.
  */
 public class XsltConstants {
     private static final String PACKAGE_NAME = "xslt";
-    static final BPackage XSLT_PACKAGE_ID = new BPackage(BALLERINA_BUILTIN_PKG_PREFIX, PACKAGE_NAME, "1.0.2");
+    static final Module XSLT_PACKAGE_ID = new Module(BALLERINA_BUILTIN_PKG_PREFIX, PACKAGE_NAME, "1.0.2");
 
     // Error type IDs
     static final String XSLT_TRANSFORM_ERROR = "TransformError";
