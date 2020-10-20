@@ -17,7 +17,7 @@
  */
 
 module io.ballerina.stdlib.xslt {
-    requires io.ballerina.jvm;
+    requires io.ballerina.runtime;
     requires org.slf4j;
     requires java.xml;
 
