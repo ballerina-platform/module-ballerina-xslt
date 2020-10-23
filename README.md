@@ -12,9 +12,9 @@ This module provides a function to transform the XML content to another XML/HTML
 
 For more information go to [The XSLT Module](https://ballerina.io/swan-lake/learn/api-docs/ballerina/xslt/).
 
-## `Issues` and `Projects` 
+## Issues and Projects 
 
-`Issues` and `Project` tabs are disabled for this repository as this is one of the Ballerina Standard Libraries. To report bugs, request new features, start new discussions, view project boards, etc. please visit Ballerina Standard Library [parent repository](https://github.com/ballerina-platform/ballerina-standard-library). 
+Issues and Projects tabs are disabled for this repository as this is part of the Ballerina Standard Library. To report bugs, request new features, start new discussions, view project boards, etc. please visit Ballerina Standard Library [parent repository](https://github.com/ballerina-platform/ballerina-standard-library). 
 
 This repository only contains the source code for the module.
 
@@ -22,12 +22,17 @@ This repository only contains the source code for the module.
 
 ### Setting Up the Prerequisites
 
-1. Download and install Java SE Development Kit (JDK) version 8 (from one of the following locations).
-   * [Oracle](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
+1. Download and install Java SE Development Kit (JDK) version 11 (from one of the following locations).
+
+   * [Oracle](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
    
-   * [OpenJDK](http://openjdk.java.net/install/index.html)
+   * [OpenJDK](https://adoptopenjdk.net/)
    
-        > **Note:** Set the JAVA_HOME environment variable to the path name of the directory into which you installed JDK.
+        > **Note:** Set the JAVA_HOME environment variable to the path name of the directory into which you installed JDK.   
+1. Export Github Personal access token with read package permissions as follows,
+        
+        export packageUser=<Username>
+        export packagePAT=<Personal access token>
      
 ### Building the Source
 
