@@ -13,6 +13,12 @@ This module provides a function to transform the XML content to another XML/HTML
 
 For more information go to [The XSLT Module](https://ballerina.io/swan-lake/learn/api-docs/ballerina/xslt/).
 
+## `Issues` and `Projects` 
+
+`Issues` and `Project` tabs are disabled for this repository as this is one of the Ballerina Standard Libraries. To report bugs, request new features, start new discussions, view project boards, etc. please visit Ballerina Standard Library [parent repository](https://github.com/ballerina-platform/ballerina-standard-library). 
+
+This repository only contains the source code for the module.
+
 ## Building from the Source
 
 ### Setting Up the Prerequisites
@@ -47,8 +53,6 @@ Execute the commands below to build from source.
 ## Contributing to Ballerina
 
 As an open source project, Ballerina welcomes contributions from the community. 
-
-You can also check for [open issues](https://github.com/ballerina-platform/ballerina-standard-library/labels/module%2Fxslt) that interest you. We look forward to receiving your contributions.
 
 For more information, go to the [contribution guidelines](https://github.com/ballerina-platform/ballerina-lang/blob/master/CONTRIBUTING.md).
 
