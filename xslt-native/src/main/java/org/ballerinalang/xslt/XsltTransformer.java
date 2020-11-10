@@ -18,14 +18,15 @@
 
 package org.ballerinalang.xslt;
 
-import io.ballerina.runtime.XMLFactory;
-import io.ballerina.runtime.XMLNodeType;
-import io.ballerina.runtime.api.ErrorCreator;
-import io.ballerina.runtime.api.StringUtils;
+import io.ballerina.runtime.api.utils.XmlUtils;
+import io.ballerina.runtime.api.types.XmlNodeType;
+import io.ballerina.runtime.api.creators.ErrorCreator;
+import io.ballerina.runtime.api.creators.ValueCreator;
+import io.ballerina.runtime.api.utils.StringUtils;
 import io.ballerina.runtime.api.values.BError;
-import io.ballerina.runtime.values.XMLItem;
-import io.ballerina.runtime.values.XMLSequence;
-import io.ballerina.runtime.values.XMLValue;
+import io.ballerina.runtime.api.values.BXmlItem;
+import io.ballerina.runtime.api.values.BXmlSequence;
+import io.ballerina.runtime.api.values.BXml;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.slf4j.Logger;
@@ -53,11 +54,11 @@ public class XsltTransformer {
     private static final Logger log = LoggerFactory.getLogger(XsltTransformer.class);
     private static final String OPERATION = "Failed to perform XSL transformation: ";
 
-    public static Object transform(XMLValue xmlInput, XMLValue xslInput) {
+    public static Object transform(BXml xmlInput, BXml xslInput) {
         try {
             boolean unwrap = false;
-            if (xmlInput.getNodeType() == XMLNodeType.SEQUENCE) {
-                XMLItem wrapper = new XMLItem(new QName("root"), (XMLSequence) xmlInput);
+            if (xmlInput.getNodeType() == XmlNodeType.SEQUENCE) {
+                BXmlItem wrapper = ValueCreator.createXmlItem(new QName("root"), (BXmlSequence) xmlInput);
                 xmlInput = wrapper;
                 unwrap = true;
             }
@@ -101,13 +102,13 @@ public class XsltTransformer {
     }
 
     /**
-     * Converts the given string to a BXMLSequence object.
+     * Converts the given string to a BXmlSequence object.
      *
      * @param xmlStr The string to be converted
-     * @return The result BXMLSequence object
+     * @return The result BXmlSequence object
      */
-    private static XMLSequence parseToXML(String xmlStr) throws XMLStreamException {
-        return (XMLSequence) XMLFactory.parse(xmlStr);
+    private static BXmlSequence parseToXML(String xmlStr) throws XMLStreamException {
+        return (BXmlSequence) XmlUtils.parse(xmlStr);
     }
 
     private static BError createTransformError(String errMsg) {
