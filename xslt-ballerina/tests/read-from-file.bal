@@ -20,11 +20,11 @@ import ballerina/stringutils;
 
 @test:Config {}
 function testReadFromFile() {
-    string xmlFilePath = "src/xslt/tests/resources/datafiles/cd_catalog.xml";
-    string xslFilePath = "src/xslt/tests/resources/datafiles/cd_catalog.xsl";
+    string xmlFilePath = "tests/resources/datafiles/cd_catalog.xml";
+    string xslFilePath = "tests/resources/datafiles/cd_catalog.xsl";
     xml|error result = readFromFile(xmlFilePath, xslFilePath);
     if (result is xml) {
-        xml|error expected = readXml("src/xslt/tests/resources/datafiles/read_from_file_result.xml");
+        xml|error expected = readXml("tests/resources/datafiles/read_from_file_result.xml");
         if (expected is xml) {
             test:assertEquals(result, expected);
         } else {
@@ -39,11 +39,11 @@ function testReadFromFile() {
     enable: false
 }
 function testReadFromSource() {
-    string xmlFilePath = "src/xslt/tests/resources/datafiles/source.xml";
-    string xslFilePath = "src/xslt/tests/resources/datafiles/source.xsl";
+    string xmlFilePath = "tests/resources/datafiles/source.xml";
+    string xslFilePath = "tests/resources/datafiles/source.xsl";
     xml|error result = readFromFile(xmlFilePath, xslFilePath);
     if (result is xml) {
-        xml|error expected = readXml("src/xslt/tests/resources/datafiles/read_from_source_result.xml");
+        xml|error expected = readXml("tests/resources/datafiles/read_from_source_result.xml");
         if (expected is xml) {
             test:assertEquals(result, expected);
         } else {
@@ -56,11 +56,11 @@ function testReadFromSource() {
 
 @test:Config {}
 function testReadMultiRootedXml() {
-    string xmlFilePath = "src/xslt/tests/resources/datafiles/cd_catalog.xml";
-    string xslFilePath = "src/xslt/tests/resources/datafiles/cd_catalog_multi.xsl";
+    string xmlFilePath = "tests/resources/datafiles/cd_catalog.xml";
+    string xslFilePath = "tests/resources/datafiles/cd_catalog_multi.xsl";
     xml|error result = readMultiRootedXml(xmlFilePath, xslFilePath);
     if (result is xml) {
-        xml|error expected = readXml("src/xslt/tests/resources/datafiles/read_from_multi_rooted_result.xml");
+        xml|error expected = readXml("tests/resources/datafiles/read_from_multi_rooted_result.xml");
         if (expected is xml) {
             test:assertEquals(result, expected);
         } else {
