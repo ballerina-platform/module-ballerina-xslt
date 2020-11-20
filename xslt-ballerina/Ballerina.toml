@@ -1,38 +1,38 @@
-[project]
-org-name = "ballerina"
+[package]
+org = "ballerina"
+name = "xslt"
 version = "@toml.version@"
 
-[dependencies]
-"ballerina/io" = "@stdlib.io.version@"
-"ballerina/stringutils" = "@stdlib.stringutils.version@"
+[[dependency]]
+org = "ballerina"
+name = "io"
+version = "@stdlib.io.version@"
 
-[platform]
-target = "java11"
+[[dependency]]
+org = "ballerina"
+name = "stringutils"
+version = "@stdlib.stringutils.version@"
 
-    [[platform.libraries]]
-    artifactId = "xslt"
-    version = "@project.version@"
-    path = "../xslt-native/build/libs/xslt-native-@project.version@.jar"
-    groupId = "ballerina"
-    modules = ["xslt"]
+[[platform.java11.dependency]]
+path = "../xslt-native/build/libs/xslt-native-@project.version@.jar"
+groupId = "org.ballerinalang.xslt"
+artifactId = "xslt"
+version = "@project.version@"
 
-    [[platform.libraries]]
-    artifactId = "axiom-api"
-    version = "@axiom.version@"
-    path = "./lib/axiom-api-@axiom.version@.jar"
-    groupId = "org.apache.ws.commons.axiom"
-    modules = ["xslt"]
+[[platform.java11.dependency]]
+path = "./lib/axiom-api-@axiom.version@.jar"
+groupId = "org.apache.ws.commons.axiom"
+artifactId = "axiom-api"
+version = "@axiom.version@"
 
-    [[platform.libraries]]
-    artifactId = "axiom-impl"
-    version = "@axiom.version@"
-    path = "./lib/axiom-impl-@axiom.version@.jar"
-    groupId = "org.apache.ws.commons.axiom"
-    modules = ["xslt"]
+[[platform.java11.dependency]]
+path = "./lib/axiom-impl-@axiom.version@.jar"
+groupId = "org.apache.ws.commons.axiom"
+artifactId = "axiom-impl"
+version = "@axiom.version@"
 
-    [[platform.libraries]]
-    artifactId = "jakarta.activation"
-    version = "@jakarta.activation.version@"
-    path = "./lib/jakarta.activation-@jakarta.activation.version@.jar"
-    groupId = "com.sun.activation"
-    modules = ["xslt"]
+[[platform.java11.dependency]]
+path = "./lib/jakarta.activation-@jakarta.activation.version@.jar"
+groupId = "com.sun.activation"
+artifactId = "jakarta.activation"
+version = "@jakarta.activation.version@"
