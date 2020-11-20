@@ -67,8 +67,6 @@ def artifactCacheParent = file("$project.projectDir/build/cache_parent/")
 def artifactLibParent = file("$project.projectDir/build/lib_parent/")
 def tomlVersion = project.version.split("-")[0]
 def ballerinaCentralAccessToken = System.getenv('BALLERINA_CENTRAL_ACCESS_TOKEN')
-def targetBallerinaJar = file("""$project.projectDir/target/caches/jar_cache/${packageOrg}/${packageName}/${tomlVersion}/${packageOrg}-${packageName}-${tomlVersion}.jar""")
-def targetNativeJar = file("$project.rootDir/${packageName}-native/build/libs/${packageName}-native-${project.version}.jar")
 def distributionPath =  project.projectDir.absolutePath + "/build/target/extracted-distributions/jballerina-tools-zip/jballerina-tools-${ballerinaLangVersion}"
 def distributionBinPath = distributionPath + "/bin"
 def originalConfig = ballerinaConfigFile.text
@@ -130,6 +128,7 @@ task ballerinaTest {
     dependsOn(unpackStdLibs)
     dependsOn(copyStdlibs)
     dependsOn(updateTomlFile)
+    dependsOn(copyToLib)
     finalizedBy(revertTomlFile)
 
     def debugParams = ""
@@ -161,6 +160,7 @@ task ballerinaBuild {
     dependsOn(unpackStdLibs)
     dependsOn(copyStdlibs)
     dependsOn(updateTomlFile)
+    dependsOn(copyToLib)
     dependsOn(ballerinaTest)
     finalizedBy(revertTomlFile)
 
