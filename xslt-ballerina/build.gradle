@@ -92,6 +92,9 @@ task copyStdlibs(type: Copy) {
         into("repo/balo") {
             from "${artifactExtractedPath}/balo"
         }
+        into("repo/cache") {
+            from "${artifactExtractedPath}/cache"
+        }
     }
 }
 
@@ -180,10 +183,10 @@ task ballerinaBuild {
             into file("$artifactCacheParent/balo/${packageOrg}/${packageName}/${tomlVersion}")
         }
         copy {
-            from file("${artifactLibParent}/libs")
+            from file("$project.projectDir/target/cache")
             exclude '**/*-testable.jar'
-            exclude '**/tests_cache'
-            into file("${artifactCacheParent}/cache/")
+            exclude '**/tests_cache/'
+            into file("$artifactCacheParent/cache/")
         }
 
         // Publish to central
