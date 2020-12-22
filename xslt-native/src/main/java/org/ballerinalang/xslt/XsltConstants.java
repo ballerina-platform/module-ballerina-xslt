@@ -27,7 +27,7 @@ import static io.ballerina.runtime.api.constants.RuntimeConstants.BALLERINA_BUIL
  */
 public class XsltConstants {
     private static final String PACKAGE_NAME = "xslt";
-    static final Module XSLT_PACKAGE_ID = new Module(BALLERINA_BUILTIN_PKG_PREFIX, PACKAGE_NAME, "1.0.5");
+    static final Module XSLT_PACKAGE_ID = new Module(BALLERINA_BUILTIN_PKG_PREFIX, PACKAGE_NAME, "1.0.6");
 
     // Error type IDs
     static final String XSLT_TRANSFORM_ERROR = "TransformError";
