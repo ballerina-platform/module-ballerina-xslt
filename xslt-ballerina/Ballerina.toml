@@ -8,11 +8,6 @@ org = "ballerina"
 name = "io"
 version = "@stdlib.io.version@"
 
-[[dependency]]
-org = "ballerina"
-name = "stringutils"
-version = "@stdlib.stringutils.version@"
-
 [[platform.java11.dependency]]
 path = "../xslt-native/build/libs/xslt-native-@project.version@.jar"
 groupId = "org.ballerinalang.xslt"
