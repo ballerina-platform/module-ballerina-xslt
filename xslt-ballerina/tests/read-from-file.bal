@@ -16,7 +16,6 @@
 
 import ballerina/io;
 import ballerina/test;
-import ballerina/stringutils;
 
 @test:Config {}
 function testReadFromFile() {
@@ -77,7 +76,7 @@ function testDirectInvoke() {
     if (result is xml) {
         test:assertFail("Expected an error. But found the xml");
     } else {        
-        test:assertTrue(stringutils:contains(result.message(), "Unexpected character 'H' (code 72) in prolog; expected '<'"));
+        test:assertTrue(result.message().includes("Unexpected character 'H' (code 72) in prolog; expected '<'"));
     }
 }
 

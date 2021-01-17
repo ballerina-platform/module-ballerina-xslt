@@ -29,7 +29,6 @@ ext.slf4jVersion = project.slf4jVersion
 ext.axiomVersion = project.axiomVersion
 ext.jakartaActivationVersion = project.jakartaActivationVersion
 ext.stdlibIoVersion = project.stdlibIoVersion
-ext.stdlibStringUtilsVersion = project.stdlibStringUtilsVersion
 
 allprojects {
     group = 'org.ballerinalang'
@@ -67,14 +66,6 @@ allprojects {
                 password System.getenv("packagePAT")
             }
         }
-
-        maven {
-            url = 'https://maven.pkg.github.com/ballerina-platform/module-ballerina-stringutils'
-            credentials {
-                username System.getenv("packageUser")
-                password System.getenv("packagePAT")
-            }
-        }
     }
 }
 
@@ -87,7 +78,6 @@ subprojects {
     dependencies {
         /* Standard libraries */
         ballerinaStdLibs "org.ballerinalang:io-ballerina:${stdlibIoVersion}"
-        ballerinaStdLibs "org.ballerinalang:stringutils-ballerina:${stdlibStringUtilsVersion}"
     }
 }
 def moduleVersion = project.version
