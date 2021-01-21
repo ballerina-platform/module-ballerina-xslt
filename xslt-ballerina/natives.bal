@@ -14,7 +14,7 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import ballerina/java;
+import ballerina/jballerina.java;
 
 # Transforms the single-rooted XML content to another XML/HTML/plain text using XSL transformations.
 # ```ballerina
