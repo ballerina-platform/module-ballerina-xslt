@@ -20,14 +20,13 @@ package org.ballerinalang.xslt;
 
 import io.ballerina.runtime.api.Module;
 
-import static io.ballerina.runtime.api.constants.RuntimeConstants.BALLERINA_BUILTIN_PKG_PREFIX;
+import static org.ballerinalang.xslt.ModuleUtils.getModule;
 
 /**
  * Constants related to XSLT.
  */
 public class XsltConstants {
-    private static final String PACKAGE_NAME = "xslt";
-    static final Module XSLT_PACKAGE_ID = new Module(BALLERINA_BUILTIN_PKG_PREFIX, PACKAGE_NAME, "1.0.6");
+    static final Module XSLT_PACKAGE_ID = getModule();
 
     // Error type IDs
     static final String XSLT_TRANSFORM_ERROR = "TransformError";
