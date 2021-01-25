@@ -18,15 +18,10 @@
 
 package org.ballerinalang.xslt;
 
-import io.ballerina.runtime.api.Module;
-
-import static org.ballerinalang.xslt.ModuleUtils.getModule;
-
 /**
  * Constants related to XSLT.
  */
 public class XsltConstants {
-    static final Module XSLT_PACKAGE_ID = getModule();
 
     // Error type IDs
     static final String XSLT_TRANSFORM_ERROR = "TransformError";
