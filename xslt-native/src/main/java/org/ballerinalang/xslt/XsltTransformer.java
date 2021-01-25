@@ -41,7 +41,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stax.StAXSource;
 import javax.xml.transform.stream.StreamResult;
 
-import static org.ballerinalang.xslt.XsltConstants.XSLT_PACKAGE_ID;
+import static org.ballerinalang.xslt.ModuleUtils.getModule;
 import static org.ballerinalang.xslt.XsltConstants.XSLT_TRANSFORM_ERROR;
 
 /**
@@ -112,6 +112,6 @@ public class XsltTransformer {
     }
 
     private static BError createTransformError(String errMsg) {
-        return ErrorCreator.createDistinctError(XSLT_TRANSFORM_ERROR, XSLT_PACKAGE_ID, StringUtils.fromString(errMsg));
+        return ErrorCreator.createDistinctError(XSLT_TRANSFORM_ERROR, getModule(), StringUtils.fromString(errMsg));
     }
 }
