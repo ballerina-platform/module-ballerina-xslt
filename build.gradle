@@ -25,6 +25,7 @@ plugins {
 
 ext.ballerinaLangVersion = project.ballerinaLangVersion
 ext.puppycrawlCheckstyleVersion = project.puppycrawlCheckstyleVersion
+ext.checkstyleToolVersion = project.checkstyleToolVersion
 ext.slf4jVersion = project.slf4jVersion
 ext.axiomVersion = project.axiomVersion
 ext.jakartaActivationVersion = project.jakartaActivationVersion
