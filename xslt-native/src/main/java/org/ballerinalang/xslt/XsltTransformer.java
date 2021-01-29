@@ -18,15 +18,15 @@
 
 package org.ballerinalang.xslt;
 
-import io.ballerina.runtime.api.utils.XmlUtils;
-import io.ballerina.runtime.api.types.XmlNodeType;
 import io.ballerina.runtime.api.creators.ErrorCreator;
 import io.ballerina.runtime.api.creators.ValueCreator;
+import io.ballerina.runtime.api.types.XmlNodeType;
 import io.ballerina.runtime.api.utils.StringUtils;
+import io.ballerina.runtime.api.utils.XmlUtils;
 import io.ballerina.runtime.api.values.BError;
+import io.ballerina.runtime.api.values.BXml;
 import io.ballerina.runtime.api.values.BXmlItem;
 import io.ballerina.runtime.api.values.BXmlSequence;
-import io.ballerina.runtime.api.values.BXml;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.slf4j.Logger;
@@ -50,11 +50,12 @@ import static org.ballerinalang.xslt.XsltConstants.XSLT_TRANSFORM_ERROR;
  * @since 0.995.0
  */
 public class XsltTransformer {
-    
+
     private static final Logger log = LoggerFactory.getLogger(XsltTransformer.class);
     private static final String OPERATION = "Failed to perform XSL transformation: ";
 
     public static Object transform(BXml xmlInput, BXml xslInput) {
+
         try {
             boolean unwrap = false;
             if (xmlInput.getNodeType() == XmlNodeType.SEQUENCE) {
@@ -108,10 +109,12 @@ public class XsltTransformer {
      * @return The result BXmlSequence object
      */
     private static BXmlSequence parseToXML(String xmlStr) throws XMLStreamException {
+
         return (BXmlSequence) XmlUtils.parse(xmlStr);
     }
 
     private static BError createTransformError(String errMsg) {
+
         return ErrorCreator.createDistinctError(XSLT_TRANSFORM_ERROR, getModule(), StringUtils.fromString(errMsg));
     }
 }
