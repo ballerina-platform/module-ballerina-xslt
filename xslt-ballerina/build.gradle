@@ -258,15 +258,10 @@ task createArtifactZip(type: Zip) {
     from ballerinaBuild
 }
 
-def getCheckedOutGitCommitHash() {
-    'git rev-parse --verify --short HEAD'.execute().text.trim()
-}
-
 publishing {
     publications {
         maven(MavenPublication) {
             artifact source: createArtifactZip, extension: 'zip'
-            artifact source: artifactCodeCoverageReport, classifier: 'jacoco'
         }
     }
 
