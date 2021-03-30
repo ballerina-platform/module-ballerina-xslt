@@ -45,12 +45,6 @@ dependencies {
         transitive = false
     }
     compile project(":${packageName}-native")
-    externalJars (group: 'org.apache.ws.commons.axiom', name: 'axiom-api', version: "${axiomVersion}") {
-        transitive = false
-    }
-    externalJars (group: 'org.apache.ws.commons.axiom', name: 'axiom-impl', version: "${axiomVersion}") {
-        transitive = false
-    }
     externalJars(group: 'com.sun.activation', name: 'jakarta.activation', version: "${jakartaActivationVersion}") {
         transitive = false
     }
@@ -110,10 +104,9 @@ task updateTomlVersions {
     doLast {
         def stdlibDependentIoVersion = project.stdlibIoVersion.replace("-SNAPSHOT", "")
         def jakartaActivationVersion = project.jakartaActivationVersion
-        def axiomVersion = project.axiomVersion
+
         def newConfig = ballerinaConfigFile.text.replace("@project.version@", project.version)
         newConfig = newConfig.replace("@toml.version@", tomlVersion)
-        newConfig = newConfig.replace("@axiom.version@", axiomVersion)
         newConfig = newConfig.replace("@jakarta.activation.version@", jakartaActivationVersion)
         ballerinaConfigFile.text = newConfig
 
