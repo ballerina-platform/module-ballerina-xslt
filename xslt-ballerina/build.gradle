@@ -28,7 +28,21 @@ def artifactBallerinaDocs = file("$project.projectDir/build/docs_parent/")
 def artifactCacheParent = file("$project.projectDir/build/cache_parent/")
 def artifactLibParent = file("$project.projectDir/build/lib_parent/")
 def artifactCodeCoverageReport = file("$project.projectDir/target/cache/tests_cache/coverage/ballerina.exec")
-def tomlVersion = project.version.replace("-SNAPSHOT", "")
+
+def timestampedVersionRegex = '.*-\\d{8}-\\d{6}-\\w.*\$'
+def snapshotVersion = "-SNAPSHOT"
+def tomlVersion
+if (project.version.matches(timestampedVersionRegex)) {
+    def splitVersion = project.version.split('-');
+    if (splitVersion.length > 3) {
+        def strippedValues = splitVersion[0..-4]
+        tomlVersion = strippedValues.join('-')
+    } else {
+        tomlVersion = project.version
+    }
+} else {
+    tomlVersion = project.version.replace("${snapshotVersion}", "")
+}
 def ballerinaCentralAccessToken = System.getenv('BALLERINA_CENTRAL_ACCESS_TOKEN')
 def distributionPath =  project.projectDir.absolutePath + "/build/target/extracted-distributions/jballerina-tools-zip/jballerina-tools-${ballerinaLangVersion}"
 def distributionBinPath = distributionPath + "/bin"
@@ -230,7 +244,8 @@ task ballerinaBuild {
 
 task ballerinaPublish {
     doLast {
-        if (project.version.endsWith('-SNAPSHOT')) {
+        if (project.version.endsWith('-SNAPSHOT') ||
+                project.version.matches(timestampedVersionRegex)) {
             return
         }
         if (ballerinaCentralAccessToken != null) {
