@@ -40,20 +40,40 @@ This repository only contains the source code for the module.
 Execute the commands below to build from source.
 
 1. To build the library:
+   ```    
+   ./gradlew clean build
+   ```
 
-        ./gradlew clean build
-
-2. To run the integration tests:
-
-        ./gradlew clean test
-
-3. To build the module without the tests:
-
-        ./gradlew clean build -x test
-
-4. To debug the tests:
-
-        ./gradlew clean build -Pdebug=<port>
+1. To run the integration tests:
+   ```
+   ./gradlew clean test
+   ```
+1. To build the module without the tests:
+   ```
+   ./gradlew clean build -x test
+   ```
+1. To debug module implementation:
+   ```
+   ./gradlew clean build -Pdebug=<port>
+   ./gradlew clean test -Pdebug=<port>
+   ```
+1. To debug the module with Ballerina language:
+   ```
+   ./gradlew clean build -PbalJavaDebug=<port>
+   ./gradlew clean test -PbalJavaDebug=<port>
+   ```
+1. Publish ZIP artifact to the local `.m2` repository:
+   ```
+   ./gradlew clean build publishToMavenLocal
+   ```
+1. Publish the generated artifacts to the local Ballerina central repository:
+   ```
+   ./gradlew clean build -PpublishToLocalCentral=true
+   ```
+1. Publish the generated artifacts to the Ballerina central repository:
+   ```
+   ./gradlew clean build -PpublishToCentral=true
+   ```
 
 ## Contributing to Ballerina
 
