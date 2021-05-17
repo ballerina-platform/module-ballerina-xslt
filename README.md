@@ -7,11 +7,11 @@ Ballerina XSLT Library
   [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
   [![codecov](https://codecov.io/gh/ballerina-platform/module-ballerina-xslt/branch/master/graph/badge.svg)](https://codecov.io/gh/ballerina-platform/module-ballerina-xslt)
 
-The XSLT library is one of the standard library packages of the<a target="_blank" href="https://ballerina.io/"> Ballerina</a> language.
+The `xslt` library is one of the standard library packages of the<a target="_blank" href="https://ballerina.io/"> Ballerina</a> language.
 
 This package provides a function to transform the XML content to another XML/HTML/plain text using XSL transformations.
 
-For more information go to [The XSLT Module](https://ballerina.io/swan-lake/learn/api-docs/ballerina/xslt/).
+For more information, go to the [`xslt` module](https://ballerina.io/swan-lake/learn/api-docs/ballerina/xslt/).
 
 ## Issues and Projects 
 
@@ -87,6 +87,6 @@ All contributors are encouraged to read the [Ballerina Code of Conduct](https://
 
 ## Useful Links
 
-* Discuss the code changes of the Ballerina project in [ballerina-dev@googlegroups.com](mailto:ballerina-dev@googlegroups.com).
+* Discuss code changes of the Ballerina project in [ballerina-dev@googlegroups.com](mailto:ballerina-dev@googlegroups.com).
 * Chat live with us via our [Slack channel](https://ballerina.io/community/slack/).
 * Post all technical questions on Stack Overflow with the [#ballerina](https://stackoverflow.com/questions/tagged/ballerina) tag.
