@@ -33,10 +33,9 @@ description = 'Ballerina - XSLT Ballerina Generator'
 
 def packageName = "xslt"
 def packageOrg = "ballerina"
+def tomlVersion = stripBallerinaExtensionVersion("${project.version}")
 def ballerinaConfigFile = new File("$project.projectDir/Ballerina.toml")
 def ballerinaDependencyFile = new File("$project.projectDir/Dependencies.toml")
-def tomlVersion = stripBallerinaExtensionVersion("${project.version}")
-def ballerinaCentralAccessToken = System.getenv('BALLERINA_CENTRAL_ACCESS_TOKEN')
 def originalConfig = ballerinaConfigFile.text
 def originalDependencies = ballerinaDependencyFile.text
 
@@ -54,6 +53,15 @@ def stripBallerinaExtensionVersion(String extVersion) {
     }
 }
 
+apply plugin: 'io.ballerina.plugin'
+
+ballerina {
+    packageOrganization = packageOrg
+    module = packageName
+    langVersion = ballerinaLangVersion
+    testCoverageParam = "--code-coverage --jacoco-xml --includes=org.ballerinalang.xslt.*:ballerina.xslt.*"
+}
+
 configurations {
     externalJars
 }
@@ -64,15 +72,7 @@ dependencies {
     }
 }
 
-apply plugin: 'io.ballerina.plugin'
-
-ballerina {
-    module = packageName
-    langVersion = ballerinaLangVersion
-    testCoverageParam = "--code-coverage --jacoco-xml --includes=org.ballerinalang.xslt.*:ballerina.xslt.*"
-}
-
-task updateTomlVersions {
+task updateTomlFiles {
     doLast {
         def stdlibDependentIoVersion = stripBallerinaExtensionVersion(project.stdlibIoVersion)
         def jakartaActivationVersion = project.jakartaActivationVersion
@@ -87,7 +87,7 @@ task updateTomlVersions {
     }
 }
 
-task revertTomlFile {
+task revertTomlFiles {
     doLast {
         ballerinaConfigFile.text = originalConfig
         ballerinaDependencyFile.text = originalDependencies
@@ -113,7 +113,7 @@ publishing {
     }
 }
 
-updateTomlVersions.dependsOn copyStdlibs
+updateTomlFiles.dependsOn copyStdlibs
 
 build.dependsOn ":${packageName}-native:build"
 test.dependsOn ":${packageName}-native:build"
