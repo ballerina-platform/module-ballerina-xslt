@@ -2,7 +2,7 @@
 The XSLT library is one of the standard library packages of the<a target="_blank" href="https://ballerina.io/"> Ballerina
 </a> language.
 
-This package provides a function to transform the XML content to another XML/HTML/plain text using XSL transformations.
+This package provides a function to transform the `xml` content to another XML/HTML/plain text using XSL transformations.
 
 ### Report Issues
 
