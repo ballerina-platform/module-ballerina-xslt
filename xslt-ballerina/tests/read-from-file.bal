@@ -80,10 +80,10 @@ function testDirectInvoke() {
     }
 }
 
-function readXml(string filePath) returns @tainted xml|error {
+function readXml(string filePath) returns xml|error {
     var byteChannel = io:openReadableFile(filePath);
     if (byteChannel is io:ReadableByteChannel) {
-        io:ReadableCharacterChannel rch = <@untainted> new io:ReadableCharacterChannel(byteChannel, "UTF-8");
+        io:ReadableCharacterChannel rch = new io:ReadableCharacterChannel(byteChannel, "UTF-8");
         var result = rch.readXml();
         if (result is xml) {
             return result;
@@ -95,7 +95,7 @@ function readXml(string filePath) returns @tainted xml|error {
     }
 }
 
-function readFromFile(string xmlFilePath, string xslFilePath) returns @tainted xml|error {
+function readFromFile(string xmlFilePath, string xslFilePath) returns xml|error {
     var xmlValue = readXml(xmlFilePath);
     if (xmlValue is xml) {
         var xslValue = readXml(xslFilePath);
@@ -114,7 +114,7 @@ function readFromFile(string xmlFilePath, string xslFilePath) returns @tainted x
     }
 }
 
-function readMultiRootedXml(string xmlFilePath, string xslFilePath) returns @tainted xml|error {
+function readMultiRootedXml(string xmlFilePath, string xslFilePath) returns xml|error {
     var xmlValue = readXml(xmlFilePath);
     if (xmlValue is xml) {
         var xslValue = readXml(xslFilePath);
@@ -133,7 +133,7 @@ function readMultiRootedXml(string xmlFilePath, string xslFilePath) returns @tai
     }
 }
 
-function transformXml() returns @tainted xml|error {
+function transformXml() returns xml|error {
     xml xmlValue = xml `Hello, World!`;
     xml xslValue = xml `<name>Book1</name>`;
     var result = transform(xmlValue, xslValue);
