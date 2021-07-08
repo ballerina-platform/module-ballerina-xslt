@@ -21,5 +21,5 @@ function init() {
 }
 
 function setModule() = @java:Method {
-    'class: "org.ballerinalang.xslt.ModuleUtils"
+    'class: "io.ballerina.stdlib.xslt.ModuleUtils"
 } external;

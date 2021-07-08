@@ -16,7 +16,7 @@
  * under the License.
  */
 
-package org.ballerinalang.xslt;
+package io.ballerina.stdlib.xslt;
 
 import io.ballerina.runtime.api.creators.ErrorCreator;
 import io.ballerina.runtime.api.creators.ValueCreator;
@@ -41,8 +41,8 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stax.StAXSource;
 import javax.xml.transform.stream.StreamResult;
 
-import static org.ballerinalang.xslt.ModuleUtils.getModule;
-import static org.ballerinalang.xslt.XsltConstants.XSLT_TRANSFORM_ERROR;
+import static io.ballerina.stdlib.xslt.ModuleUtils.getModule;
+import static io.ballerina.stdlib.xslt.XsltConstants.XSLT_TRANSFORM_ERROR;
 
 /**
  * Transforms XML to another XML/HTML/plain text using XSLT.

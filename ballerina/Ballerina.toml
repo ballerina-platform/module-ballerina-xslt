@@ -4,9 +4,7 @@ name = "xslt"
 version = "@toml.version@"
 
 [[platform.java11.dependency]]
-path = "../xslt-native/build/libs/xslt-native-@project.version@.jar"
-groupId = "org.ballerinalang.xslt"
-artifactId = "xslt"
+path = "../native/build/libs/xslt-native-@project.version@.jar"
 version = "@project.version@"
 
 [[platform.java11.dependency]]
