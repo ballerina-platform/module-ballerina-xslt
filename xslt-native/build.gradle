@@ -22,26 +22,26 @@ apply plugin: "checkstyle"
 description = 'Ballerina - Xslt Java Utils'
 
 dependencies {
-    compile (group: 'org.ballerinalang', name: 'ballerina-lang', version: "${ballerinaLangVersion}") {
+    implementation (group: 'org.ballerinalang', name: 'ballerina-lang', version: "${ballerinaLangVersion}") {
         transitive = false
     }
-    compile (group: 'org.ballerinalang', name: 'ballerina-runtime', version: "${ballerinaLangVersion}") {
+    implementation (group: 'org.ballerinalang', name: 'ballerina-runtime', version: "${ballerinaLangVersion}") {
         transitive = false
     }
-    compile (group: 'org.ballerinalang', name: 'ballerina-core', version: "${ballerinaLangVersion}") {
+    implementation (group: 'org.ballerinalang', name: 'ballerina-core', version: "${ballerinaLangVersion}") {
         transitive = false
     }
-    compile (group: 'org.ballerinalang', name: 'ballerina-rt', version: "${ballerinaLangVersion}") {
+    implementation (group: 'org.ballerinalang', name: 'ballerina-rt', version: "${ballerinaLangVersion}") {
         transitive = false
     }
-    compile (group: 'org.slf4j', name: 'slf4j-jdk14', version: "${slf4jVersion}")
-    compile (group: 'org.apache.ws.commons.axiom', name: 'axiom-api', version: "${axiomVersion}") {
+    implementation (group: 'org.slf4j', name: 'slf4j-jdk14', version: "${slf4jVersion}")
+    implementation (group: 'org.apache.ws.commons.axiom', name: 'axiom-api', version: "${axiomVersion}") {
         transitive = false
     }
-    compile (group: 'org.apache.ws.commons.axiom', name: 'axiom-impl', version: "${axiomVersion}") {
+    implementation (group: 'org.apache.ws.commons.axiom', name: 'axiom-impl', version: "${axiomVersion}") {
         transitive = false
     }
-    compile (group: 'com.sun.activation', name: 'jakarta.activation', version: "${jakartaActivationVersion}") {
+    implementation (group: 'com.sun.activation', name: 'jakarta.activation', version: "${jakartaActivationVersion}") {
         transitive = false
     }
     checkstyle project(":build-config:checkstyle")
