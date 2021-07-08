@@ -16,7 +16,7 @@
  * under the License.
  */
 
-package org.ballerinalang.xslt;
+package io.ballerina.stdlib.xslt;
 
 import io.ballerina.runtime.api.Environment;
 import io.ballerina.runtime.api.Module;

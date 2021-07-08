@@ -16,7 +16,7 @@
 *  under the License.
 */
 
-package org.ballerinalang.xslt;
+package io.ballerina.stdlib.xslt;
 
 /**
  * Constants related to XSLT.
