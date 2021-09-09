@@ -6,10 +6,7 @@ distribution = "slbeta3"
 
 [[platform.java11.dependency]]
 path = "../native/build/libs/xslt-native-2.0.0-SNAPSHOT.jar"
-version = "2.0.0-SNAPSHOT"
 
 [[platform.java11.dependency]]
 path = "./lib/jakarta.activation-1.2.2.jar"
-groupId = "com.sun.activation"
-artifactId = "jakarta.activation"
 version = "1.2.2"
