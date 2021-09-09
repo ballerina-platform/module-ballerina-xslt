@@ -1,0 +1,15 @@
+[package]
+org = "ballerina"
+name = "xslt"
+version = "@toml.version@"
+distribution = "slbeta3"
+
+[[platform.java11.dependency]]
+path = "../native/build/libs/xslt-native-@project.version@.jar"
+version = "@project.version@"
+
+[[platform.java11.dependency]]
+path = "./lib/jakarta.activation-@jakarta.activation.version@.jar"
+groupId = "com.sun.activation"
+artifactId = "jakarta.activation"
+version = "@jakarta.activation.version@"
