@@ -2,6 +2,10 @@
 org = "ballerina"
 name = "xslt"
 version = "2.0.1"
+authors = ["Ballerina"]
+keywords = ["xslt", "xml", "html", "xsl", "transformation"]
+repository = "https://github.com/ballerina-platform/module-ballerina-xslt"
+license = ["Apache-2.0"]
 distribution = "slbeta3"
 
 [[platform.java11.dependency]]
