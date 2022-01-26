@@ -14,5 +14,5 @@
 // specific language governing permissions and limitations
 // under the License.
 
-# Represents a `TransformError` with the message and the cause.
+# Represents a `xslt:TransformError` with the message and the cause.
 public type TransformError distinct error;
