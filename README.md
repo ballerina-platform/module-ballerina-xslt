@@ -7,7 +7,7 @@ Ballerina XSLT Library
   [![Github issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-standard-library/module/xslt.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-standard-library/labels/module%2Fxslt)
   [![codecov](https://codecov.io/gh/ballerina-platform/module-ballerina-xslt/branch/master/graph/badge.svg)](https://codecov.io/gh/ballerina-platform/module-ballerina-xslt)
 
-This module provides an API to transform XML content to another XML/HTML/plain text format using XSL transformations.
+This library provides an API to transform XML content to another XML/HTML/plain text format using XSL transformations.
 
 The Extensible Stylesheet Language Transformations (XSLT) is used to obtain alternative XML representations and especially for generating HTML documents.
 
