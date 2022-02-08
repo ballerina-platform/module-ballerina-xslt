@@ -1,8 +1,13 @@
 ## Package Overview
-The XSLT library is one of the standard library packages of the<a target="_blank" href="https://ballerina.io/"> Ballerina
-</a> language.
+This package provides an API to transform XML content to another XML/HTML/plain text format using XSL transformations.
 
-This package provides a function to transform XML content to another XML/HTML/plain text format using XSL transformations.
+The Extensible Stylesheet Language Transformations (XSLT) is used to obtain alternative XML representations and especially for generating HTML documents.
+
+The usage of the XSLT API is as follows:
+
+```ballerina
+xml target = check xslt:transform(sourceXml, xsl);
+```
 
 ### Report Issues
 
