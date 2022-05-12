@@ -28,9 +28,6 @@ dependencies {
     implementation (group: 'org.ballerinalang', name: 'ballerina-runtime', version: "${ballerinaLangVersion}") {
         transitive = false
     }
-    implementation (group: 'org.ballerinalang', name: 'ballerina-core', version: "${ballerinaLangVersion}") {
-        transitive = false
-    }
     implementation (group: 'org.ballerinalang', name: 'ballerina-rt', version: "${ballerinaLangVersion}") {
         transitive = false
     }
