@@ -9,7 +9,7 @@ Ballerina XSLT Library
 
 This library provides an API to transform XML content to another XML/HTML/plain text format using XSL transformations.
 
-The Extensible Stylesheet Language Transformations (XSLT) is used to obtain alternative XML representations and especially for generating HTML documents.
+The Extensible Stylesheet Language Transformations (XSLT) is used to obtain alternative XML representations and especially for generating HTML documents. The Ballerina XSLT library support XSLT version 1.0 .
 
 The usage of the XSLT API is as follows:
 
