@@ -51,7 +51,7 @@ modules = [
 [[package]]
 org = "ballerina"
 name = "xslt"
-version = "2.2.2"
+version = "2.2.3"
 dependencies = [
 	{org = "ballerina", name = "io"},
 	{org = "ballerina", name = "jballerina.java"},
