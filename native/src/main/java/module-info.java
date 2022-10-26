@@ -20,6 +20,7 @@ module io.ballerina.stdlib.xslt {
     requires io.ballerina.runtime;
     requires org.slf4j;
     requires java.xml;
+    requires Saxon.HE;
 
     exports io.ballerina.stdlib.xslt;
 }

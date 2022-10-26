@@ -70,6 +70,12 @@ dependencies {
     externalJars(group: 'com.sun.activation', name: 'jakarta.activation', version: "${jakartaActivationVersion}") {
         transitive = false
     }
+    externalJars(group: 'net.sf.saxon', name: 'Saxon-HE', version: '11.4') {
+        transitive = false
+    }
+    externalJars(group: 'org.xmlresolver', name: 'xmlresolver', version: '4.5.2') {
+        transitive = false
+    }
 }
 
 task updateTomlFiles {
