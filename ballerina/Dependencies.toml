@@ -10,7 +10,6 @@ dependencies-toml-version = "2"
 org = "ballerina"
 name = "io"
 version = "1.3.1"
-scope = "testOnly"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"},
 	{org = "ballerina", name = "lang.value"}
@@ -31,7 +30,6 @@ modules = [
 org = "ballerina"
 name = "lang.value"
 version = "0.0.0"
-scope = "testOnly"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"}
 ]
@@ -40,7 +38,6 @@ dependencies = [
 org = "ballerina"
 name = "test"
 version = "0.0.0"
-scope = "testOnly"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"}
 ]
