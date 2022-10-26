@@ -18,7 +18,3 @@ path = "../native/build/libs/xslt-native-2.3.0-SNAPSHOT.jar"
 [[platform.java11.dependency]]
 path = "./lib/jakarta.activation-1.2.2.jar"
 version = "1.2.2"
-
-[[platform.java11.dependency]]
-path = "./lib/saxon-8.9.jar"
-version = "8.9"
