@@ -1,0 +1,24 @@
+{
+  "resources":{
+  "includes":[
+    {
+      "pattern":"\\QMETA-INF/axiom.xml\\E"
+    },
+    {
+      "pattern":"\\Qcom/ctc/wstx/stax/WstxInputFactory.class\\E"
+    },
+    {
+      "pattern":"\\Qorg/apache/axiom/om/impl/llom/nodetypes.index\\E"
+    }, 
+    {
+      "pattern":"\\Qorg/apache/axiom/soap/impl/llom/nodetypes.index\\E"
+    }, 
+    {
+      "pattern":"\\Qorg/apache/axiom/soap/impl/llom/soap11/nodetypes.index\\E"
+    }, 
+    {
+      "pattern":"\\Qorg/apache/axiom/soap/impl/llom/soap12/nodetypes.index\\E"
+    }
+  ]},
+  "bundles":[]
+}

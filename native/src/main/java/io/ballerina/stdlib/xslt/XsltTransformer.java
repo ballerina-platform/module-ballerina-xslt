@@ -59,7 +59,6 @@ public class XsltTransformer {
     public static Object transform(BXml xmlInput, BXml xslInput) {
 
         try {
-            //System.setProperty("javax.xml.transform.TransformerFactory", "net.sf.saxon.BasicTransformerFactory");
             boolean unwrap = false;
             if (xmlInput.getNodeType() == XmlNodeType.SEQUENCE) {
                 BXmlItem wrapper = ValueCreator.createXmlItem(new QName("root"), (BXmlSequence) xmlInput);
@@ -83,12 +82,10 @@ public class XsltTransformer {
             StreamResult streamResult = new StreamResult(stringWriter);
 
             Transformer transformer = new BasicTransformerFactory().newInstance().newTransformer(xslSource);
-            errStream.println(transformer);
             transformer.setOutputProperty("omit-xml-declaration", "yes");
             transformer.transform(xmlSource, streamResult);
 
             String resultStr = stringWriter.getBuffer().toString().trim();
-            errStream.println(resultStr);
             if (log.isDebugEnabled()) {
                 log.debug("Transformed result : {}", resultStr);
             }
