@@ -85,6 +85,8 @@ task updateTomlFiles {
         def newBallerinaToml = ballerinaTomlFilePlaceHolder.text.replace("@project.version@", project.version)
         newBallerinaToml = newBallerinaToml.replace("@toml.version@", tomlVersion)
         newBallerinaToml = newBallerinaToml.replace("@jakarta.activation.version@", jakartaActivationVersion)
+        newBallerinaToml = newBallerinaToml.replace("@saxon.he.version@", saxonHeVersion)
+        newBallerinaToml = newBallerinaToml.replace("@xmlresolver.version@", xmlResolverVersion)
         ballerinaTomlFile.text = newBallerinaToml
     }
 }
