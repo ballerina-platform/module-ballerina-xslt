@@ -24,5 +24,5 @@ path = "./lib/Saxon-HE-11.4.jar"
 version = "11.4"
 
 [[platform.java11.dependency]]
-path = "./lib/xmlresolver-4.5.2.jar"
-version = "4.5.2"
+path = "./lib/xmlresolver-@xmlresolver.version@.jar"
+version = "@xmlresolver.version@"
