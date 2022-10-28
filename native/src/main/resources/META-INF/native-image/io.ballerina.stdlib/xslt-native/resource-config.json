@@ -2,9 +2,6 @@
   "resources":{
   "includes":[
     {
-      "pattern":"\\QMETA-INF/axiom.xml\\E"
-    },
-    {
       "pattern":"\\Qcom/ctc/wstx/stax/WstxInputFactory.class\\E"
     },
     {

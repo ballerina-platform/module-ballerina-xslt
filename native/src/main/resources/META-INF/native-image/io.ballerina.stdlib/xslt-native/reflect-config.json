@@ -16,10 +16,6 @@
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
-  "name":"org.apache.axiom.locator.DefaultOMMetaFactoryLocator",
-  "methods":[{"name":"<init>","parameterTypes":[] }]
-},
-{
   "name":"org.apache.axiom.om.impl.llom.AxiomAttributeImpl",
   "queriedMethods":[{"name":"<init>","parameterTypes":[] }]
 },
@@ -62,14 +58,6 @@
 {
   "name":"org.apache.axiom.om.impl.llom.AxiomSourcedElementImpl",
   "queriedMethods":[{"name":"<init>","parameterTypes":[] }]
-},
-{
-  "name":"org.apache.axiom.om.impl.llom.factory.AxiomNodeFactoryImpl",
-  "fields":[{"name":"INSTANCE"}]
-},
-{
-  "name":"org.apache.axiom.om.impl.llom.factory.OMLinkedListMetaFactoryLoader",
-  "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
   "name":"org.apache.axiom.soap.impl.llom.AxiomSOAPMessageImpl",
@@ -162,24 +150,6 @@
 {
   "name":"org.apache.axiom.soap.impl.llom.soap12.AxiomSOAP12HeaderImpl",
   "queriedMethods":[{"name":"<init>","parameterTypes":[] }]
-},
-{
-  "name":"org.apache.commons.logging.LogFactory"
-},
-{
-  "name":"org.apache.commons.logging.impl.Jdk14Logger",
-  "methods":[{"name":"<init>","parameterTypes":["java.lang.String"] }]
-},
-{
-  "name":"org.apache.commons.logging.impl.Log4JLogger"
-},
-{
-  "name":"org.apache.commons.logging.impl.LogFactoryImpl",
-  "methods":[{"name":"<init>","parameterTypes":[] }]
-},
-{
-  "name":"org.apache.commons.logging.impl.WeakHashtable",
-  "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
   "name":"org.xmlresolver.loaders.XmlLoader",
