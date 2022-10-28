@@ -22,6 +22,9 @@ apply plugin: "checkstyle"
 description = 'Ballerina - Xslt Java Utils'
 
 dependencies {
+    implementation(group: 'net.sf.saxon', name: 'Saxon-HE', version: "${saxonHeVersion}") {
+        transitive = false
+    }
     implementation (group: 'org.ballerinalang', name: 'ballerina-lang', version: "${ballerinaLangVersion}") {
         transitive = false
     }

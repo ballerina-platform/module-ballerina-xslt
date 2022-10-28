@@ -27,17 +27,18 @@ import io.ballerina.runtime.api.values.BError;
 import io.ballerina.runtime.api.values.BXml;
 import io.ballerina.runtime.api.values.BXmlItem;
 import io.ballerina.runtime.api.values.BXmlSequence;
+import net.sf.saxon.BasicTransformerFactory;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.PrintStream;
 import java.io.StringWriter;
 
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stax.StAXSource;
 import javax.xml.transform.stream.StreamResult;
 
@@ -52,6 +53,7 @@ import static io.ballerina.stdlib.xslt.XsltConstants.XSLT_TRANSFORM_ERROR;
 public class XsltTransformer {
 
     private static final Logger log = LoggerFactory.getLogger(XsltTransformer.class);
+    private static final PrintStream errStream = System.err;
     private static final String OPERATION = "Failed to perform XSL transformation: ";
 
     public static Object transform(BXml xmlInput, BXml xslInput) {
@@ -79,7 +81,7 @@ public class XsltTransformer {
             StringWriter stringWriter = new StringWriter();
             StreamResult streamResult = new StreamResult(stringWriter);
 
-            Transformer transformer = TransformerFactory.newInstance().newTransformer(xslSource);
+            Transformer transformer = new BasicTransformerFactory().newInstance().newTransformer(xslSource);
             transformer.setOutputProperty("omit-xml-declaration", "yes");
             transformer.transform(xmlSource, streamResult);
 
