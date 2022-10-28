@@ -1,0 +1,355 @@
+[
+  {
+    "name": "net.sf.saxon.Configuration",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "net.sf.saxon.functions.StringJoin",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "net.sf.saxon.functions.String_1",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "net.sf.saxon.functions.Tokenize_1",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.om.impl.llom.AxiomAttributeImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.om.impl.llom.AxiomCDATASectionImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.om.impl.llom.AxiomCharacterDataNodeImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.om.impl.llom.AxiomCommentImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.om.impl.llom.AxiomDocTypeImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.om.impl.llom.AxiomDocumentImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.om.impl.llom.AxiomElementImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.om.impl.llom.AxiomEntityReferenceImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.om.impl.llom.AxiomNamespaceDeclarationImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.om.impl.llom.AxiomProcessingInstructionImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.om.impl.llom.AxiomSourcedElementImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.AxiomSOAPMessageImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap11.AxiomSOAP11BodyImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap11.AxiomSOAP11EnvelopeImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap11.AxiomSOAP11FaultCodeImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap11.AxiomSOAP11FaultDetailImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap11.AxiomSOAP11FaultImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap11.AxiomSOAP11FaultReasonImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap11.AxiomSOAP11FaultRoleImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap11.AxiomSOAP11HeaderBlockImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap11.AxiomSOAP11HeaderImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap12.AxiomSOAP12BodyImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap12.AxiomSOAP12EnvelopeImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap12.AxiomSOAP12FaultCodeImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap12.AxiomSOAP12FaultDetailImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap12.AxiomSOAP12FaultImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap12.AxiomSOAP12FaultNodeImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap12.AxiomSOAP12FaultReasonImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap12.AxiomSOAP12FaultRoleImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap12.AxiomSOAP12FaultSubCodeImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap12.AxiomSOAP12FaultTextImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap12.AxiomSOAP12FaultValueImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap12.AxiomSOAP12HeaderBlockImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.apache.axiom.soap.impl.llom.soap12.AxiomSOAP12HeaderImpl",
+    "queriedMethods": [
+      {
+        "name": "<init>",
+        "parameterTypes": []
+      }
+    ]
+  },
+  {
+    "name": "org.xmlresolver.loaders.XmlLoader",
+    "methods": [
+      {
+        "name": "<init>",
+        "parameterTypes": [
+          "org.xmlresolver.ResolverConfiguration"
+        ]
+      }
+    ]
+  }
+]
