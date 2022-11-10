@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - [API docs updated](https://github.com/ballerina-platform/ballerina-standard-library/issues/3463)
+- [Changed XSLT processor to Saxon-HE to support native-images](https://github.com/ballerina-platform/ballerina-standard-library/issues/3462)
+
+### Added
+- [native-image configs](https://github.com/ballerina-platform/ballerina-standard-library/issues/3462)
 
 ## [2.2.3] - 2022-07-22
 
