@@ -9,23 +9,23 @@ icon = "icon.png"
 license = ["Apache-2.0"]
 distribution = "2201.7.0"
 
-[platform.java11]
+[platform.java17]
 graalvmCompatible = true
 
-[[platform.java11.dependency]]
+[[platform.java17.dependency]]
 groupId = "io.ballerina.stdlib"
 artifactId = "xslt-native"
 version = "2.5.0"
 path = "../native/build/libs/xslt-native-2.5.0-SNAPSHOT.jar"
 
-[[platform.java11.dependency]]
+[[platform.java17.dependency]]
 path = "./lib/jakarta.activation-1.2.2.jar"
 version = "1.2.2"
 
-[[platform.java11.dependency]]
+[[platform.java17.dependency]]
 path = "./lib/Saxon-HE-11.4.jar"
 version = "11.4"
 
-[[platform.java11.dependency]]
+[[platform.java17.dependency]]
 path = "./lib/xmlresolver-4.5.2.jar"
 version = "4.5.2"
