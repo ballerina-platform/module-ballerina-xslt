@@ -5,12 +5,12 @@
 
 [ballerina]
 dependencies-toml-version = "2"
-distribution-version = "2201.7.0-20230619-175900-bb4e4544"
+distribution-version = "2201.8.0"
 
 [[package]]
 org = "ballerina"
 name = "io"
-version = "1.5.0"
+version = "1.6.0"
 scope = "testOnly"
 dependencies = [
 	{org = "ballerina", name = "jballerina.java"},
@@ -62,7 +62,7 @@ modules = [
 [[package]]
 org = "ballerina"
 name = "xslt"
-version = "2.5.0"
+version = "2.6.0"
 dependencies = [
 	{org = "ballerina", name = "io"},
 	{org = "ballerina", name = "jballerina.java"},
