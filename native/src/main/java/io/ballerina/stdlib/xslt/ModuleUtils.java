@@ -28,7 +28,7 @@ import io.ballerina.runtime.api.Module;
 public class ModuleUtils {
 
     /**
-     * XSLT standard library package ID.
+     * XSLT Ballerina library package ID.
      */
     private static Module ioModule = null;
 
