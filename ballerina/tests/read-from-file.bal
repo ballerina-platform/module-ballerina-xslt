@@ -39,8 +39,8 @@ function testReadFromFileWithParams() {
     string xmlFilePath = "tests/resources/datafiles/cd_catalog.xml";
     string xslFilePath = "tests/resources/datafiles/cd_catalog_with_params.xsl";
     string strParam = "Music CD Collection With Artist";
-    int intParam = 5;
-    map<string|int> params = {"param1":strParam, "param2": intParam};
+    decimal intParam = 5;
+    map<string|decimal> params = {"param1":strParam, "param2": intParam};
     xml|error result = readFromFileWithParams(xmlFilePath, xslFilePath, params);
     if (result is xml) {
         xml|error expected = readXml("tests/resources/datafiles/read_from_file_with_params_result.xml");
@@ -54,7 +54,7 @@ function testReadFromFileWithParams() {
     }
 }
 
-function readFromFileWithParams(string xmlFilePath, string xslFilePath, map<string|int> params) returns xml|error {
+function readFromFileWithParams(string xmlFilePath, string xslFilePath, map<string|decimal> params) returns xml|error {
     var xmlValue = readXml(xmlFilePath);
     if (xmlValue is xml) {
         var xslValue = readXml(xslFilePath);

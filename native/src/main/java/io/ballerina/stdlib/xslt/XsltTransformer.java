@@ -118,8 +118,8 @@ public class XsltTransformer {
     private static void applyParameters(Transformer transformer, BMap<BString, Object> paramInput) {
         BIterator<?> iterator = paramInput.getIterator();
         while (iterator.hasNext()) {
-            BArray next = (BArray) iterator.next(); //Doing hard casts here, may need to check types
-            BString key = (BString) next.get(0); //Doing hard casts here, may need to check types
+            BArray next = (BArray) iterator.next();
+            BString key = (BString) next.get(0);
             Object value = next.get(1);
             // Note that you can add any value as long as toString method of that value works properly,
             // Only support string and int at the moment, may be able to improve the logic to support
