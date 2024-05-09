@@ -35,23 +35,15 @@ function testReadFromFile() {
 }
 
 @test:Config {}
-function testReadFromFileWithParams() {
+function testReadFromFileWithParams() returns error? {
     string xmlFilePath = "tests/resources/datafiles/cd_catalog.xml";
     string xslFilePath = "tests/resources/datafiles/cd_catalog_with_params.xsl";
     string strParam = "Music CD Collection With Artist";
     decimal intParam = 5;
     map<string|decimal> params = {"param1":strParam, "param2": intParam};
-    xml|error result = readFromFileWithParams(xmlFilePath, xslFilePath, params);
-    if (result is xml) {
-        xml|error expected = readXml("tests/resources/datafiles/read_from_file_with_params_result.xml");
-        if (expected is xml) {
-            test:assertEquals(result, expected);
-        } else {
-            test:assertFail(expected.message());
-        }
-    } else {
-        test:assertFail(result.message());
-    }
+    xml result = check readFromFileWithParams(xmlFilePath, xslFilePath, params);
+    xml expected = check readXml("tests/resources/datafiles/read_from_file_with_params_result.xml");
+    test:assertEquals(result, expected);
 }
 
 function readFromFileWithParams(string xmlFilePath, string xslFilePath, map<string|decimal> params) returns xml|error {
