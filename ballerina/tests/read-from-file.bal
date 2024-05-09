@@ -47,22 +47,9 @@ function testReadFromFileWithParams() returns error? {
 }
 
 function readFromFileWithParams(string xmlFilePath, string xslFilePath, map<string|decimal> params) returns xml|error {
-    var xmlValue = readXml(xmlFilePath);
-    if (xmlValue is xml) {
-        var xslValue = readXml(xslFilePath);
-        if (xslValue is xml) {
-            var result = transform(xmlValue, xslValue, params);
-            if (result is xml) {
-                return result;
-            } else {
-                return result;
-            }
-        } else {
-            return xslValue;
-        }
-    } else {
-        return xmlValue;
-    }
+    xml xmlValue = check readXml(xmlFilePath);
+    xml xslValue = check readXml(xslFilePath);
+    return transform(xmlValue, xslValue, params);
 }
 
 @test:Config {
