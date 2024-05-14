@@ -23,7 +23,11 @@ import io.ballerina.runtime.api.creators.ValueCreator;
 import io.ballerina.runtime.api.types.XmlNodeType;
 import io.ballerina.runtime.api.utils.StringUtils;
 import io.ballerina.runtime.api.utils.XmlUtils;
+import io.ballerina.runtime.api.values.BArray;
 import io.ballerina.runtime.api.values.BError;
+import io.ballerina.runtime.api.values.BIterator;
+import io.ballerina.runtime.api.values.BMap;
+import io.ballerina.runtime.api.values.BString;
 import io.ballerina.runtime.api.values.BXml;
 import io.ballerina.runtime.api.values.BXmlItem;
 import io.ballerina.runtime.api.values.BXmlSequence;
@@ -56,7 +60,7 @@ public class XsltTransformer {
     private static final PrintStream errStream = System.err;
     private static final String OPERATION = "Failed to perform XSL transformation: ";
 
-    public static Object transform(BXml xmlInput, BXml xslInput) {
+    public static Object transform(BXml xmlInput, BXml xslInput, BMap<BString, Object> paramInput) {
 
         try {
             boolean unwrap = false;
@@ -83,6 +87,7 @@ public class XsltTransformer {
 
             Transformer transformer = new BasicTransformerFactory().newInstance().newTransformer(xslSource);
             transformer.setOutputProperty("omit-xml-declaration", "yes");
+            applyParameters(transformer, paramInput);
             transformer.transform(xmlSource, streamResult);
 
             String resultStr = stringWriter.getBuffer().toString().trim();
@@ -101,6 +106,28 @@ public class XsltTransformer {
         } catch (Exception e) {
             String errMsg = e.getCause() != null ? e.getCause().getMessage() : e.getMessage();
             return createTransformError(OPERATION + errMsg);
+        }
+    }
+
+    /**
+     * Apply template parameters to the transformer.
+     *
+     * @param transformer The transformer to be used
+     * @param paramInput The input parameter map
+     */
+    private static void applyParameters(Transformer transformer, BMap<BString, Object> paramInput) {
+        BIterator<?> iterator = paramInput.getIterator();
+        while (iterator.hasNext()) {
+            BArray next = (BArray) iterator.next();
+            BString key = (BString) next.get(0);
+            Object value = next.get(1);
+            // Note that you can add any value as long as toString method of that value works properly,
+            // Only support string and int at the moment, may be able to improve the logic to support
+            // xml as well, but current XmlItem ballerina runtime value toString method does not return
+            // the value expected by the transformer, so not supporting that at the moment
+            // And here, no need to check the types of the values as the compiler will make sure
+            // only viable types of values will arrive here
+            transformer.setParameter(key.getValue(), value);
         }
     }
 

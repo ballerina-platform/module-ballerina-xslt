@@ -23,8 +23,9 @@ import ballerina/jballerina.java;
 #
 # + input - An XML object, which needs to be transformed
 # + xsl - The XSL style sheet represented in an XML object
+# + params - Optional parameters passed into the xslt template
 # + return - The transformed result represented in an XML object or else an `error` if the given `XML` object
 #            cannot be transformed
-public isolated function transform(xml input, xml xsl) returns xml|error = @java:Method {
+public isolated function transform(xml input, xml xsl, map<string|decimal> params = {}) returns xml|error = @java:Method {
     'class: "io.ballerina.stdlib.xslt.XsltTransformer"
 } external;

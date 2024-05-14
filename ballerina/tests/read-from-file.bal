@@ -34,6 +34,24 @@ function testReadFromFile() {
     }
 }
 
+@test:Config {}
+function testReadFromFileWithParams() returns error? {
+    string xmlFilePath = "tests/resources/datafiles/cd_catalog.xml";
+    string xslFilePath = "tests/resources/datafiles/cd_catalog_with_params.xsl";
+    string strParam = "Music CD Collection With Artist";
+    decimal intParam = 5;
+    map<string|decimal> params = {"param1":strParam, "param2": intParam};
+    xml result = check readFromFileWithParams(xmlFilePath, xslFilePath, params);
+    xml expected = check readXml("tests/resources/datafiles/read_from_file_with_params_result.xml");
+    test:assertEquals(result, expected);
+}
+
+function readFromFileWithParams(string xmlFilePath, string xslFilePath, map<string|decimal> params) returns xml|error {
+    xml xmlValue = check readXml(xmlFilePath);
+    xml xslValue = check readXml(xslFilePath);
+    return transform(xmlValue, xslValue, params);
+}
+
 @test:Config {
     enable: false
 }
