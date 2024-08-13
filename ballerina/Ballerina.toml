@@ -7,7 +7,7 @@ keywords = ["xslt", "xml", "html", "xsl", "transformation"]
 repository = "https://github.com/ballerina-platform/module-ballerina-xslt"
 icon = "icon.png"
 license = ["Apache-2.0"]
-distribution = "2201.8.0"
+distribution = "2201.10.0"
 
 [platform.java17]
 graalvmCompatible = true
