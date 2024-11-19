@@ -14,5 +14,8 @@
 // specific language governing permissions and limitations
 // under the License.
 
+import ballerina/jballerina.java;
+
 # Represents an `xslt:TransformError` with the message and the cause.
+@java:ExternalDependency
 public type TransformError distinct error;
