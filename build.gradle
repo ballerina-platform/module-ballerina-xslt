@@ -63,7 +63,7 @@ subprojects {
 
     configurations {
         ballerinaStdLibs
-        jablTools
+        jbalTools
     }
 
     dependencies {
