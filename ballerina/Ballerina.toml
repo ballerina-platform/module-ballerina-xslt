@@ -16,7 +16,7 @@ graalvmCompatible = true
 groupId = "io.ballerina.stdlib"
 artifactId = "xslt-native"
 version = "2.8.0"
-path = "../native/build/libs/xslt-native-2.8.0-SNAPSHOT.jar"
+path = "../native/build/libs/xslt-native-2.8.0.jar"
 
 [[platform.java21.dependency]]
 path = "./lib/jakarta.activation-1.2.2.jar"
