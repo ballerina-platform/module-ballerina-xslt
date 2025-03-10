@@ -26,6 +26,6 @@ import ballerina/jballerina.java;
 # + params - Optional parameters passed into the xslt template
 # + return - The transformed result represented in an XML object or else an `error` if the given `XML` object
 #            cannot be transformed
-public isolated function transform(xml input, xml xsl, map<string|decimal> params = {}) returns xml|error = @java:Method {
+public isolated function transform(xml input, xml xsl, map<anydata> params = {}) returns xml|error = @java:Method {
     'class: "io.ballerina.stdlib.xslt.XsltTransformer"
 } external;
