@@ -40,8 +40,8 @@ function testReadFromFileWithParams() returns error? {
     string xslFilePath = "tests/resources/datafiles/cd_catalog_with_params.xsl";
     string strParam = "Music CD Collection With Artist";
     decimal intParam = 5;
-    xml xmlParam = xml `<element>"value"</element>`;
-    map<anydata> params = {"param1":strParam, "param2": intParam, "param3": xmlParam};
+    xml xmlParam = xml `<root><element>${strParam}</element></root>`;
+    map<anydata> params = {"param1": strParam, "param2": intParam, "param3": xmlParam};
     xml result = check readFromFileWithParams(xmlFilePath, xslFilePath, params);
     xml expected = check readXml("tests/resources/datafiles/read_from_file_with_params_result.xml");
     test:assertEquals(result, expected);
@@ -66,7 +66,7 @@ function testReadFromSource() {
             test:assertEquals(result, expected);
         } else {
             test:assertFail(expected.message());
-        } 
+        }
     } else {
         test:assertFail(result.message());
     }
@@ -94,7 +94,7 @@ function testDirectInvoke() {
     xml|error result = transformXml();
     if (result is xml) {
         test:assertFail("Expected an error. But found the xml");
-    } else {        
+    } else {
         test:assertTrue(result.message().includes("Unexpected character 'H' (code 72) in prolog; expected '<'"));
     }
 }
