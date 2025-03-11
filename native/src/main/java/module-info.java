@@ -21,6 +21,7 @@ module io.ballerina.stdlib.xslt {
     requires org.slf4j;
     requires java.xml;
     requires Saxon.HE;
+    requires axiom.api;
 
     exports io.ballerina.stdlib.xslt;
 }

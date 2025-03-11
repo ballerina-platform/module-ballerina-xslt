@@ -36,11 +36,16 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
 
+import java.io.ByteArrayInputStream;
 import java.io.PrintStream;
 import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
 
 import javax.xml.namespace.QName;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.stax.StAXSource;
@@ -115,12 +120,13 @@ public class XsltTransformer {
      * @param transformer The transformer to be used
      * @param paramInput The input parameter map
      */
-    private static void applyParameters(Transformer transformer, BMap<BString, Object> paramInput) {
+    private static void applyParameters(Transformer transformer,
+                                        BMap<BString, Object> paramInput) throws Exception {
         BIterator<?> iterator = paramInput.getIterator();
         while (iterator.hasNext()) {
             BArray next = (BArray) iterator.next();
             BString key = (BString) next.get(0);
-            Object value = next.get(1);
+            Object value = (next.get(1) instanceof BXmlItem) ? convertToDocument(next.get(1).toString()) : next.get(1);
             // Note that you can add any value as long as toString method of that value works properly,
             // Only support string and int at the moment, may be able to improve the logic to support
             // xml as well, but current XmlItem ballerina runtime value toString method does not return
@@ -145,5 +151,12 @@ public class XsltTransformer {
     private static BError createTransformError(String errMsg) {
 
         return ErrorCreator.createDistinctError(XSLT_TRANSFORM_ERROR, getModule(), StringUtils.fromString(errMsg));
+    }
+
+    public static Document convertToDocument(String xml) throws Exception {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        return builder.parse(new ByteArrayInputStream(xml.getBytes(StandardCharsets.UTF_8)));
     }
 }
