@@ -41,13 +41,14 @@ function testReadFromFileWithParams() returns error? {
     string strParam = "Music CD Collection With Artist";
     decimal intParam = 5;
     xml xmlParam = xml `<root><element>${strParam}</element></root>`;
-    map<anydata> params = {"param1": strParam, "param2": intParam, "param3": xmlParam};
+    map<string|decimal|xml> params = {"param1": strParam, "param2": intParam, "param3": xmlParam};
     xml result = check readFromFileWithParams(xmlFilePath, xslFilePath, params);
     xml expected = check readXml("tests/resources/datafiles/read_from_file_with_params_result.xml");
     test:assertEquals(result, expected);
 }
 
-function readFromFileWithParams(string xmlFilePath, string xslFilePath, map<anydata> params) returns xml|error {
+function readFromFileWithParams(string xmlFilePath, string xslFilePath, 
+                                map<string|decimal|xml> params) returns xml|error {
     xml xmlValue = check readXml(xmlFilePath);
     xml xslValue = check readXml(xslFilePath);
     return transform(xmlValue, xslValue, params);
