@@ -40,13 +40,15 @@ function testReadFromFileWithParams() returns error? {
     string xslFilePath = "tests/resources/datafiles/cd_catalog_with_params.xsl";
     string strParam = "Music CD Collection With Artist";
     decimal intParam = 5;
-    map<string|decimal> params = {"param1":strParam, "param2": intParam};
+    xml xmlParam = xml `<root><element>${strParam}</element></root>`;
+    map<string|decimal|xml> params = {"param1": strParam, "param2": intParam, "param3": xmlParam};
     xml result = check readFromFileWithParams(xmlFilePath, xslFilePath, params);
     xml expected = check readXml("tests/resources/datafiles/read_from_file_with_params_result.xml");
     test:assertEquals(result, expected);
 }
 
-function readFromFileWithParams(string xmlFilePath, string xslFilePath, map<string|decimal> params) returns xml|error {
+function readFromFileWithParams(string xmlFilePath, string xslFilePath, 
+                                map<string|decimal|xml> params) returns xml|error {
     xml xmlValue = check readXml(xmlFilePath);
     xml xslValue = check readXml(xslFilePath);
     return transform(xmlValue, xslValue, params);
@@ -65,7 +67,7 @@ function testReadFromSource() {
             test:assertEquals(result, expected);
         } else {
             test:assertFail(expected.message());
-        } 
+        }
     } else {
         test:assertFail(result.message());
     }
@@ -93,7 +95,7 @@ function testDirectInvoke() {
     xml|error result = transformXml();
     if (result is xml) {
         test:assertFail("Expected an error. But found the xml");
-    } else {        
+    } else {
         test:assertTrue(result.message().includes("Unexpected character 'H' (code 72) in prolog; expected '<'"));
     }
 }
