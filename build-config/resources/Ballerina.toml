@@ -7,25 +7,25 @@ keywords = ["xslt", "xml", "html", "xsl", "transformation"]
 repository = "https://github.com/ballerina-platform/module-ballerina-xslt"
 icon = "icon.png"
 license = ["Apache-2.0"]
-distribution = "2201.12.0"
+distribution = "2201.14.0-SNAPSHOT"
 
-[platform.java21]
+[platform.java25]
 graalvmCompatible = true
 
-[[platform.java21.dependency]]
+[[platform.java25.dependency]]
 groupId = "io.ballerina.stdlib"
 artifactId = "xslt-native"
 version = "@toml.version@"
 path = "../native/build/libs/xslt-native-@project.version@.jar"
 
-[[platform.java21.dependency]]
+[[platform.java25.dependency]]
 path = "./lib/jakarta.activation-@jakarta.activation.version@.jar"
 version = "@jakarta.activation.version@"
 
-[[platform.java21.dependency]]
+[[platform.java25.dependency]]
 path = "./lib/Saxon-HE-@saxon.he.version@.jar"
 version = "@saxon.he.version@"
 
-[[platform.java21.dependency]]
+[[platform.java25.dependency]]
 path = "./lib/xmlresolver-@xmlresolver.version@.jar"
 version = "@xmlresolver.version@"
