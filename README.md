@@ -1,5 +1,4 @@
-Ballerina XSLT Library
-===================
+# Ballerina XSLT Library
 
   [![Build](https://github.com/ballerina-platform/module-ballerina-xslt/actions/workflows/build-timestamped-master.yml/badge.svg)](https://github.com/ballerina-platform/module-ballerina-xslt/actions/workflows/build-timestamped-master.yml)
   [![codecov](https://codecov.io/gh/ballerina-platform/module-ballerina-xslt/branch/master/graph/badge.svg)](https://codecov.io/gh/ballerina-platform/module-ballerina-xslt)
@@ -8,9 +7,9 @@ Ballerina XSLT Library
   [![GitHub Last Commit](https://img.shields.io/github/last-commit/ballerina-platform/module-ballerina-xslt.svg)](https://github.com/ballerina-platform/module-ballerina-xslt/commits/master)
   [![Github issues](https://img.shields.io/github/issues/ballerina-platform/ballerina-standard-library/module/xslt.svg?label=Open%20Issues)](https://github.com/ballerina-platform/ballerina-standard-library/labels/module%2Fxslt)
 
-This library provides an API to transform XML content to another XML/HTML/plain text format using XSL transformations.
+## Overview
 
-The Extensible Stylesheet Language Transformations (XSLT) is used to obtain alternative XML representations and especially for generating HTML documents. The Ballerina XSLT library support XSLT version 1.0.
+This module provides an API to transform XML content to another XML/HTML/plain text format using XSL transformations, based on the Extensible Stylesheet Language Transformations (XSLT) standard. This module supports XSLT version 1.0.
 
 The usage of the XSLT API is as follows:
 
@@ -82,7 +81,7 @@ Execute the commands below to build from source.
 
 ## Contribute to Ballerina
 
-As an open source project, Ballerina welcomes contributions from the community. 
+As an open-source project, Ballerina welcomes contributions from the community. 
 
 For more information, go to the [contribution guidelines](https://github.com/ballerina-platform/ballerina-lang/blob/master/CONTRIBUTING.md).
 
