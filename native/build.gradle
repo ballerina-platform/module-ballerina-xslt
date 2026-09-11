@@ -63,8 +63,8 @@ spotbugsMain {
     }
     reports {
         text.enabled = true
-            html.enabled true
-}
+        html.enabled true
+    }
 }
 
 spotbugsTest {
