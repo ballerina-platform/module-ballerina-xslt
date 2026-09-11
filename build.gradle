@@ -96,6 +96,14 @@ release {
     }
 }
 
-tasks.named('build') {
-    dependsOn('xslt-ballerina:build')
+if (tasks.names.contains('build')) {
+    tasks.named('build') {
+        dependsOn('xslt-ballerina:build')
+
+    }
+} else {
+    tasks.register('build') {
+        dependsOn('xslt-ballerina:build')
+
+    }
 }
