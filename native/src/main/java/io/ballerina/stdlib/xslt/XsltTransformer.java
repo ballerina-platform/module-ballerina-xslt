@@ -37,8 +37,10 @@ import org.apache.axiom.om.util.AXIOMUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
@@ -46,6 +48,7 @@ import java.nio.charset.StandardCharsets;
 import javax.xml.namespace.QName;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.stax.StAXSource;
@@ -121,7 +124,8 @@ public class XsltTransformer {
      * @param paramInput The input parameter map
      */
     private static void applyParameters(Transformer transformer,
-                                        BMap<BString, Object> paramInput) throws Exception {
+                                        BMap<BString, Object> paramInput) throws ParserConfigurationException,
+            SAXException, IOException {
         BIterator<?> iterator = paramInput.getIterator();
         while (iterator.hasNext()) {
             BArray next = (BArray) iterator.next();
@@ -153,7 +157,8 @@ public class XsltTransformer {
         return ErrorCreator.createDistinctError(XSLT_TRANSFORM_ERROR, getModule(), StringUtils.fromString(errMsg));
     }
 
-    public static Document convertToDocument(String xml) throws Exception {
+    public static Document convertToDocument(String xml) throws ParserConfigurationException, SAXException,
+            IOException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
         DocumentBuilder builder = factory.newDocumentBuilder();
