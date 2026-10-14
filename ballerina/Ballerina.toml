@@ -1,9 +1,9 @@
 [package]
 org = "ballerina"
 name = "xslt"
-version = "2.9.2"
+version = "2.9.3"
 authors = ["Ballerina"]
-keywords = ["xslt", "xml", "html", "xsl", "transformation", "Type/Library", "Area/Built-in", "Name/XSLT"]
+keywords = ["xslt", "xml", "html", "xsl", "transformation", "Type/Library", "Area/Built-in", "Area/Data Formats & Utilities", "Name/XSLT"]
 repository = "https://github.com/ballerina-platform/module-ballerina-xslt"
 icon = "icon.png"
 license = ["Apache-2.0"]
@@ -15,8 +15,8 @@ graalvmCompatible = true
 [[platform.java21.dependency]]
 groupId = "io.ballerina.stdlib"
 artifactId = "xslt-native"
-version = "2.9.2"
-path = "../native/build/libs/xslt-native-2.9.2.jar"
+version = "2.9.3"
+path = "../native/build/libs/xslt-native-2.9.3-SNAPSHOT.jar"
 
 [[platform.java21.dependency]]
 path = "./lib/jakarta.activation-1.2.2.jar"
